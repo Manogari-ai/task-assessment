@@ -2,21 +2,24 @@ import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateCol
 
 @Entity()
 export class Task {
-  @PrimaryGeneratedColumn()
-  id: number;
+    @PrimaryGeneratedColumn()
+    id: number;
 
-  @Column()
-  title: string;
+    @Column({ type: 'int', nullable: true })
+    user_id: number;
 
-  @Column({ nullable: true })
-  description: string;
+    @Column()
+    title: string;
 
-  @Column({ default: 'pending' })
-  status: string; // pending, in-progress, completed
+    @Column({ nullable: true })
+    description: string;
 
-  @CreateDateColumn()
-  createdAt: Date;
+    @Column({ default: 'pending' })
+    status: string; // pending, in-progress, completed
 
-  @UpdateDateColumn()
-  updatedAt: Date;
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @UpdateDateColumn()
+    updatedAt: Date;
 }

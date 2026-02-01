@@ -1,0 +1,299 @@
+{
+  "info": {
+    "_postman_id": "d1726ed5-46b8-4bc3-823e-811a1f1cc851",
+    "name": "Nest",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "44276498"
+  },
+  "item": [
+    {
+      "name": "Task",
+      "item": [
+        {
+          "name": "create",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "title",
+                  "value": "Hello World",
+                  "type": "text",
+                  "uuid": "13544fa8-bea6-42a5-9123-e6ff3227ef92"
+                },
+                {
+                  "key": "description",
+                  "value": "This is test code",
+                  "type": "text",
+                  "uuid": "1ed2f870-4eda-46f4-80c0-1e222ba40428"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{url}}/tasks",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "tasks"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": []
+            },
+            "url": {
+              "raw": "{{url}}/tasks",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "tasks"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "title",
+                  "value": "Gold Rates",
+                  "type": "text",
+                  "uuid": "13544fa8-bea6-42a5-9123-e6ff3227ef92"
+                },
+                {
+                  "key": "description",
+                  "value": "Gold price is increasing",
+                  "type": "text",
+                  "uuid": "1ed2f870-4eda-46f4-80c0-1e222ba40428"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{url}}/tasks/9",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "tasks",
+                "9"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": []
+            },
+            "url": {
+              "raw": "{{url}}/tasks/8",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "tasks",
+                "8"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Login",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const res = pm.response.json();",
+              "",
+              "pm.collectionVariables.set('token', res.access_token);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "email",
+              "value": "manogari1@gmail.com",
+              "type": "text",
+              "uuid": "5bb2c5f9-826f-49e8-9834-56baa8e6da2b"
+            },
+            {
+              "key": "password",
+              "value": "12345678",
+              "type": "text",
+              "uuid": "e5202fa7-7212-476b-b766-349e155188f7"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{url}}/auth/login",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "email",
+              "value": "manogari1@gmail.com",
+              "type": "text",
+              "uuid": "5bb2c5f9-826f-49e8-9834-56baa8e6da2b"
+            },
+            {
+              "key": "password",
+              "value": "12345678",
+              "type": "text",
+              "uuid": "e5202fa7-7212-476b-b766-349e155188f7"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{url}}/auth/register",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "url",
+      "value": ""
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "access_token",
+      "value": ""
+    }
+  ]
+}
