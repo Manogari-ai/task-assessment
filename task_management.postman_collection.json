@@ -76,12 +76,26 @@
               "urlencoded": []
             },
             "url": {
-              "raw": "{{url}}/tasks",
+              "raw": "{{url}}/tasks?limit=5&page=1&status=completed",
               "host": [
                 "{{url}}"
               ],
               "path": [
                 "tasks"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "5"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "status",
+                  "value": "completed"
+                }
               ]
             }
           },
@@ -116,6 +130,11 @@
                   "value": "Gold price is increasing",
                   "type": "text",
                   "uuid": "1ed2f870-4eda-46f4-80c0-1e222ba40428"
+                },
+                {
+                  "key": "status",
+                  "value": "completed",
+                  "type": "text"
                 }
               ]
             },

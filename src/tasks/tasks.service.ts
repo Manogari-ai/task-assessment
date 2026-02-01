@@ -26,26 +26,39 @@ export class TasksService {
 
 
 
-    // ✅ FIND ALL
+    /// ✅ FIND ALL with pagination meta
     async findAll(
         page: number,
         limit: number,
         userId: number,
         status?: string,
-    ): Promise<Task[]> {
-        const query = this.taskRepo.createQueryBuilder('task')
+    ) {
+        const query = this.taskRepo
+            .createQueryBuilder('task')
             .where('task.user_id = :userId', { userId });
 
-
         if (status) {
-            query.where('task.status = :status', { status });
+            query.andWhere('task.status = :status', { status });
         }
 
-        return query
+        const [data, total] = await query
             .skip((page - 1) * limit)
             .take(limit)
-            .getMany();
+            .getManyAndCount();
+
+        const totalPages = Math.ceil(total / limit);
+
+        return {
+            data,
+            meta: {
+                currentPage: page,
+                perPage: limit,
+                totalRecords: total,
+                totalPages: totalPages,
+            },
+        };
     }
+
 
     // ✅ UPDATE
     async update(
