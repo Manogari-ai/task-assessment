@@ -7,7 +7,7 @@ import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import type { StringValue } from 'ms';
 import { JwtStrategy } from './jwt.strategy';
-
+// add validation
 @Module({
   imports: [
     TypeOrmModule.forFeature([User]),
