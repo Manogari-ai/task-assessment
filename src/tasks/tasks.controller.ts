@@ -12,11 +12,11 @@ import {
 } from '@nestjs/common';
 import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
 import { TasksService } from './tasks.service';
-import { CreateTaskDto } from './dto/create-task.dto';
+import { CreateTaskDto } from './dto/create-task.dto';           
 import { UpdateTaskDto } from './dto/update-task.dto';
 import { CurrentUser } from '../common/guards/decorators/current-user.decorator';
 
-@UseGuards(JwtAuthGuard)
+@UseGuards(JwtAuthGuard) // jwt auth
 @Controller('tasks')
 export class TasksController {
     constructor(private readonly service: TasksService) { }
