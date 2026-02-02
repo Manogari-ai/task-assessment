@@ -14,7 +14,7 @@ This project supports:
 
 Authentication
 - Register
-- Login (JWT based)
+- Login (Login with JWT based)
 
 Tasks
 - Create task
